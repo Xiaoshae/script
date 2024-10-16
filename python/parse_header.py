@@ -34,3 +34,17 @@ Pragma: no-cache
 Accept-Encoding: gzip, deflate"""
 
 print(json.dumps(parse_header(header),indent=4))
+
+"""
+输出结果示例
+
+{
+    "Host": "127.0.0.1:8080",
+    "Upgrade-Insecure-Requests": "1",
+    "Accept-Language": "zh-CN,zh;",
+    "Cache-Control": "no-cache",
+    "Connection": "keep-alive",
+    "Pragma": "no-cache",
+    "Accept-Encoding": "gzip, deflate"
+}
+"""
