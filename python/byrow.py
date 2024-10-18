@@ -1,5 +1,6 @@
 # iconv-line.txt 数据来源：https://gist.github.com/hakre/4188459
 
+import sys
 
 #参数1：要操作的文件名
 #参数2：分割符（字符串） 默认为：none  按照多个空白字符分割
@@ -24,10 +25,24 @@ def byrow(file_path : str , delimiter : str = None):
 
 # iconv-line.txt 数据来源：https://gist.github.com/hakre/4188459
 
-input_file = r'./test/byrow/iconv-line.txt'
+input_file  = r'./test/byrow/iconv-line.txt'
 output_file = r"./test/byrow/iconv-list.txt"
+delimiter   = None
 
-result = byrow(input_file)
+# 该脚本支持传入参数指定读取和写入的文件
+# 参数1 读取内容的文件
+# 参数2 写入内容的文件
+# 参数3 分割内容的标识符 可选
+# 示例： python byrow.py ./test/byrow/iconv-line.txt ./test/byrow/iconv-list.txt /
+if len(sys.argv) == 3 or len(sys.argv) == 4 :
+    input_file  = sys.argv[1]
+    output_file = sys.argv[2]
+    try:
+        delimiter = sys.argv[3]
+    except IndexError:
+        delimiter = None
+
+result = byrow(input_file,delimiter)
 
 with open(output_file, 'w', encoding='utf-8') as output_file:
     for item in result:
