@@ -1,3 +1,8 @@
+# iconv-line.txt 数据来源：https://gist.github.com/hakre/4188459
+
+
+#参数1：要操作的文件名
+#参数2：分割符（字符串） 默认为：none  按照多个空白字符分割
 def byrow(file_path : str , delimiter : str = None):
 
     result = []
@@ -17,12 +22,11 @@ def byrow(file_path : str , delimiter : str = None):
     return result
 
 
+# iconv-line.txt 数据来源：https://gist.github.com/hakre/4188459
 
 input_file = r'./test/byrow/iconv-line.txt'
 output_file = r"./test/byrow/iconv-list.txt"
 
-#参数1：要操作的文件名
-#参数2：分割符（字符串） 默认为：none  按照多个空白字符分割
 result = byrow(input_file)
 
 with open(output_file, 'w', encoding='utf-8') as output_file:
